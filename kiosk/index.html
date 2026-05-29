@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donna Froyo - Self-Service Kiosk</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        donnaTeal: '#00A896',
+                        donnaBlue: '#028090',
+                        donnaLightBlue: '#E0F2F1',
+                        donnaCream: '#FDFBF7',
+                        donnaPistachio: '#8A9A5B'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        display: ['Fredoka', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Touchscreen optimization styles */
+        body {
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00A896;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-donnaCream h-screen w-screen overflow-hidden font-sans flex flex-col">
+
+    <!-- Top Banner: Language & Kiosk Mode Info -->
+    <header class="bg-white border-b border-gray-200 px-6 py-3 flex justify-between items-center shrink-0">
+        <div class="flex items-center space-x-3">
+            <span class="font-display text-2xl font-bold text-donnaTeal tracking-wide">DONNA<span class="text-donnaPistachio">.</span></span>
+            <span class="bg-gray-100 text-gray-500 font-medium text-xs px-2.5 py-1 rounded border">KIOSK #01</span>
+        </div>
+        <div class="flex items-center space-x-4">
+            <button class="bg-donnaLightBlue text-donnaBlue font-semibold text-sm px-4 py-2 rounded-full border border-donnaTeal/20 flex items-center gap-2">
+                🇬🇧 English <i class="bi bi-chevron-down text-xs"></i>
+            </button>
+            <div class="text-right text-xs text-gray-400 font-mono">
+                <div id="kiosk-time">12:00 PM</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Workspace Split Interface -->
+    <main class="flex-1 flex overflow-hidden w-full">
+        
+        <!-- LEFT PANEL: Interactive 4-Item Menu Matrix -->
+        <section class="flex-1 p-8 overflow-y-auto h-full space-y-6">
+            <div class="mb-2">
+                <h1 class="font-display text-2xl font-bold text-gray-900">Tap an item to customize your order</h1>
+                <p class="text-gray-500 text-sm">Freshly prepared, aesthetic local frozen yogurt treats.</p>
+            </div>
+
+            <!-- The Grid Matrix of 4 Dedicated Menu Items -->
+            <div class="grid grid-cols-2 gap-6">
+                
+                <!-- Category 1: Yogurt Ice Cream with Topping -->
+                <button onclick="openModality('yogurt')" class="bg-white border-2 border-transparent hover:border-donnaTeal active:scale-[0.98] rounded-3xl p-5 shadow-sm hover:shadow-md transition text-left flex flex-col justify-between min-h-[20rem] group relative overflow-hidden">
+                    <div>
+                        <div class="mb-3 h-52 overflow-hidden rounded-2xl bg-donnaLightBlue/40">
+                            <img src="../assets/images/menu-froyo-toppings.jpg" alt="Donna yogurt ice cream with toppings" class="h-full w-full object-cover transition duration-300 group-hover:scale-105">
+                        </div>
+                        <span class="bg-teal-50 text-donnaTeal font-semibold text-xs px-2.5 py-1 rounded-md">House Classic</span>
+                        <h2 class="font-display text-xl font-bold text-gray-900 mt-3 group-hover:text-donnaTeal transition">Yogurt Ice Cream</h2>
+                        <p class="text-gray-500 text-xs mt-1 max-w-[80%]">Our signature velvety, less-sour froyo base paired with select premium toppings.</p>
+                    </div>
+                    <div class="w-full flex justify-between items-center pt-4 border-t border-gray-100">
+                        <span class="font-bold text-gray-900 text-lg">RM 14.50</span>
+                        <span class="bg-donnaTeal text-white w-10 h-10 rounded-full flex items-center justify-center text-lg shadow-sm"><i class="bi bi-plus-lg"></i></span>
+                    </div>
+                </button>
+
+                <!-- Category 2: Croffle with Topping -->
+                <button onclick="openModality('croffle')" class="bg-white border-2 border-transparent hover:border-donnaTeal active:scale-[0.98] rounded-3xl p-5 shadow-sm hover:shadow-md transition text-left flex flex-col justify-between min-h-[20rem] group relative overflow-hidden">
+                    <div>
+                        <div class="mb-3 h-52 overflow-hidden rounded-2xl bg-amber-50">
+                            <img src="../assets/images/menu-croffle.jpg" alt="Donna croffle with toppings" class="h-full w-full object-cover transition duration-300 group-hover:scale-105">
+                        </div>
+                        <span class="bg-amber-50 text-amber-700 font-semibold text-xs px-2.5 py-1 rounded-md">Freshly Baked</span>
+                        <h2 class="font-display text-xl font-bold text-gray-900 mt-3 group-hover:text-donnaTeal transition">Croffle with Topping</h2>
+                        <p class="text-gray-500 text-xs mt-1 max-w-[80%]">Crispy, buttery croissant waffle served warm with luxury drizzles.</p>
+                    </div>
+                    <div class="w-full flex justify-between items-center pt-4 border-t border-gray-100">
+                        <span class="font-bold text-gray-900 text-lg">RM 12.40</span>
+                        <span class="bg-donnaTeal text-white w-10 h-10 rounded-full flex items-center justify-center text-lg shadow-sm"><i class="bi bi-plus-lg"></i></span>
+                    </div>
+                </button>
+
+                <!-- Category 3: DIY with Topping -->
+                <button onclick="openModality('diy')" class="bg-white border-2 border-transparent hover:border-donnaTeal active:scale-[0.98] rounded-3xl p-5 shadow-sm hover:shadow-md transition text-left flex flex-col justify-between min-h-[20rem] group relative overflow-hidden">
+                    <div>
+                        <div class="mb-3 h-52 overflow-hidden rounded-2xl bg-purple-50">
+                            <img src="../assets/images/donna-froyo-tub-with-toppings.jpg" alt="Donna DIY topping combo" class="h-full w-full object-cover transition duration-300 group-hover:scale-105">
+                        </div>
+                        <span class="bg-purple-50 text-purple-700 font-semibold text-xs px-2.5 py-1 rounded-md">Unlimited Mix</span>
+                        <h2 class="font-display text-xl font-bold text-gray-900 mt-3 group-hover:text-donnaTeal transition">DIY Customized Combo</h2>
+                        <p class="text-gray-500 text-xs mt-1 max-w-[80%]">Complete creative control. Mix multiple bases, crunch parameters, and double sauces.</p>
+                    </div>
+                    <div class="w-full flex justify-between items-center pt-4 border-t border-gray-100">
+                        <span class="font-bold text-gray-900 text-lg">RM 18.90</span>
+                        <span class="bg-donnaTeal text-white w-10 h-10 rounded-full flex items-center justify-center text-lg shadow-sm"><i class="bi bi-plus-lg"></i></span>
+                    </div>
+                </button>
+
+                <!-- Category 4: Pistachio Spread -->
+                <button onclick="openModality('pistachio')" class="bg-white border-2 border-transparent hover:border-donnaTeal active:scale-[0.98] rounded-3xl p-5 shadow-sm hover:shadow-md transition text-left flex flex-col justify-between min-h-[20rem] group relative overflow-hidden">
+                    <div>
+                        <div class="mb-3 h-52 overflow-hidden rounded-2xl bg-emerald-50">
+                            <img src="../assets/images/menu-pistachio-spread.jpg" alt="Donna pistachio spread jars" class="h-full w-full object-cover transition duration-300 group-hover:scale-105">
+                        </div>
+                        <span class="bg-emerald-50 text-emerald-700 font-semibold text-xs px-2.5 py-1 rounded-md">Donna Signature</span>
+                        <h2 class="font-display text-xl font-bold text-gray-900 mt-3 group-hover:text-donnaTeal transition">Donna Pistachio Spread</h2>
+                        <p class="text-gray-500 text-xs mt-1 max-w-[80%]">Take home our authentic, intensely rich and nutty signature green premium liquid gold.</p>
+                    </div>
+                    <div class="w-full flex justify-between items-center pt-4 border-t border-gray-100">
+                        <span class="font-bold text-gray-900 text-lg">RM 36.40</span>
+                        <span class="bg-donnaTeal text-white w-10 h-10 rounded-full flex items-center justify-center text-lg shadow-sm"><i class="bi bi-plus-lg"></i></span>
+                    </div>
+                </button>
+
+            </div>
+
+            <!-- Marketing Help Bar at base -->
+            <div class="bg-donnaLightBlue/60 border border-donnaTeal/10 rounded-2xl p-4 flex items-center space-x-3 text-donnaBlue text-sm">
+                <i class="bi bi-info-circle-fill text-lg"></i>
+                <span>Need help with allergens or looking for special family sets? Please wave over our storefront crew anytime!</span>
+            </div>
+        </section>
+
+        <!-- RIGHT PANEL: Kiosk Checkout Basket Side Bar -->
+        <section class="w-96 bg-white border-l border-gray-200 h-full flex flex-col justify-between shadow-lg shrink-0">
+            <!-- Basket Header -->
+            <div class="p-6 border-b border-gray-100 flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="bi bi-bag-heart text-xl text-donnaTeal"></i>
+                    <h2 class="font-display text-lg font-bold text-gray-900">Your Basket</h2>
+                </div>
+                <button onclick="clearBasket()" class="text-xs text-gray-400 hover:text-red-500 font-medium">Clear All</button>
+            </div>
+
+            <!-- Dynamic Order Items List -->
+            <div id="basket-container" class="flex-1 overflow-y-auto p-6 space-y-4">
+                <!-- Static Initial Empty Slate -->
+                <div id="empty-state" class="h-full flex flex-col items-center justify-center text-center text-gray-400 space-y-3">
+                    <span class="text-5xl">🍨</span>
+                    <p class="text-sm font-medium">Your tray is currently empty.<br>Tap any menu item to start.</p>
+                </div>
+            </div>
+
+            <!-- Totals & Order Trigger Container -->
+            <div class="p-6 bg-gray-50 border-t border-gray-100 space-y-4">
+                <div class="space-y-2 text-sm text-gray-600">
+                    <div class="flex justify-between">
+                        <span>Subtotal</span>
+                        <span id="subtotal-display" class="font-medium text-gray-900">RM 0.00</span>
+                    </div>
+                    <div class="flex justify-between text-xs text-gray-400">
+                        <span>Service Tax (6%)</span>
+                        <span id="tax-display">RM 0.00</span>
+                    </div>
+                    <div class="border-t border-gray-200 my-2 pt-2 flex justify-between text-base font-bold text-gray-900">
+                        <span>Total Payable</span>
+                        <span id="total-display" class="text-donnaTeal text-xl">RM 0.00</span>
+                    </div>
+                </div>
+
+                <!-- Pay Button Trigger -->
+                <button onclick="triggerCheckoutPayment()" class="w-full bg-donnaTeal hover:bg-donnaBlue text-white font-display text-lg font-bold py-4 rounded-2xl shadow-md transition flex items-center justify-center space-x-2 active:scale-[0.99]">
+                    <span>Proceed to Payment</span>
+                    <i class="bi bi-arrow-right-short text-2xl"></i>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- FLOATING MODAL DIALOGUE: Topping & Ingredient Selection Engine -->
+    <div id="custom-modal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in">
+        <div class="bg-white rounded-3xl max-w-lg w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
+            
+            <!-- Modal Context Header -->
+            <div class="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50">
+                <div>
+                    <h3 id="modal-title" class="font-display text-xl font-bold text-gray-900">Customize Item</h3>
+                    <p id="modal-subtitle" class="text-xs text-gray-500 mt-0.5">Select your gourmet modifiers</p>
+                </div>
+                <button onclick="closeModality()" class="w-8 h-8 bg-white border rounded-full flex items-center justify-center text-gray-400 hover:text-gray-600 shadow-sm"><i class="bi bi-x-lg"></i></button>
+            </div>
+
+            <!-- Selection Scroll Engine -->
+            <div class="flex-1 overflow-y-auto p-6 space-y-6">
+                <!-- Group 1: Sauce Parameter -->
+                <div id="sauce-modifier-box" class="space-y-3">
+                    <h4 class="font-display text-sm font-bold text-gray-800 flex items-center justify-between">
+                        <span>1. Choose Premium Sauce Layer</span>
+                        <span class="text-xs text-donnaTeal font-sans font-normal">(Select 1)</span>
+                    </h4>
+                    <div class="grid grid-cols-2 gap-3">
+                        <label class="border-2 border-donnaTeal bg-donnaLightBlue/30 p-3 rounded-xl flex items-center space-x-3 cursor-pointer">
+                            <input type="radio" name="sauce-choice" value="Signature Pistachio Sauce" checked class="accent-donnaTeal">
+                            <span class="text-xs font-semibold text-gray-800">Premium Pistachio</span>
+                        </label>
+                        <label class="border border-gray-200 p-3 rounded-xl flex items-center space-x-3 cursor-pointer">
+                            <input type="radio" name="sauce-choice" value="Biscoff Drizzle" class="accent-donnaTeal">
+                            <span class="text-xs font-medium text-gray-700">Lotus Biscoff</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Group 2: Crunch Toppings -->
+                <div id="crunch-modifier-box" class="space-y-3">
+                    <h4 class="font-display text-sm font-bold text-gray-800 flex items-center justify-between">
+                        <span>2. Choose Gourmet Crunch Toppings</span>
+                        <span class="text-xs text-gray-400 font-sans font-normal">(Select up to 2)</span>
+                    </h4>
+                    <div class="space-y-2">
+                        <label class="border border-gray-200 p-3 rounded-xl flex items-center justify-between cursor-pointer">
+                            <span class="text-xs font-medium text-gray-700">Toasted Crushed Almonds</span>
+                            <input type="checkbox" value="Almond Crunch" checked class="w-4 h-4 rounded accent-donnaTeal">
+                        </label>
+                        <label class="border border-gray-200 p-3 rounded-xl flex items-center justify-between cursor-pointer">
+                            <span class="text-xs font-medium text-gray-700">Crushed Biscoff Biscuit Pieces</span>
+                            <input type="checkbox" value="Biscoff Crumbs" class="w-4 h-4 rounded accent-donnaTeal">
+                        </label>
+                        <label class="border border-gray-200 p-3 rounded-xl flex items-center justify-between cursor-pointer">
+                            <span class="text-xs font-medium text-gray-700">Crispy Nestlé Cornflakes</span>
+                            <input type="checkbox" value="Cornflake Crunch" class="w-4 h-4 rounded accent-donnaTeal">
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Bottom Basket Action Button -->
+            <div class="p-4 bg-gray-50 border-t border-gray-100 flex items-center justify-between">
+                <div class="text-left">
+                    <span class="text-xs text-gray-400 block">Calculated Price</span>
+                    <span id="modal-price-tag" class="font-display text-lg font-bold text-donnaTeal">RM 14.50</span>
+                </div>
+                <button onclick="commitItemToBasket()" class="bg-donnaTeal hover:bg-donnaBlue text-white font-semibold text-sm px-6 py-3 rounded-xl shadow-md transition">
+                    Add to My Basket
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SCRIPT ENGINE: UI Control & Basket State Machine Calculations -->
+    <script>
+        // Set standard business configurations
+        const MENU_DATA = {
+            yogurt: { title: "Yogurt Ice Cream", price: 14.50, hasModifiers: true, subtitle: "With luxury topping configuration" },
+            croffle: { title: "Croffle with Topping", price: 12.40, hasModifiers: true, subtitle: "Warm baked golden item" },
+            diy: { title: "DIY Customized Combo", price: 18.90, hasModifiers: true, subtitle: "Total ingredient control package" },
+            pistachio: { title: "Donna Pistachio Spread Jar", price: 36.40, hasModifiers: false, subtitle: "Take-home artisanal jar" }
+        };
+
+        let currentActiveKey = null;
+        let basketItems = [];
+
+        // Digital Clock System
+        setInterval(() => {
+            const now = new Date();
+            document.getElementById('kiosk-time').innerText = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        }, 1000);
+
+        // Open custom selection panel
+        function openModality(itemKey) {
+            currentActiveKey = itemKey;
+            const contextProduct = MENU_DATA[itemKey];
+            
+            if(!contextProduct.hasModifiers) {
+                // Instantly bundle products with zero steps required (like raw jar spread retail item)
+                addDirectToBasket(contextProduct.title, contextProduct.price, "Standard Retail Package");
+                return;
+            }
+
+            // Fill text properties inside modal interface dynamically
+            document.getElementById('modal-title').innerText = contextProduct.title;
+            document.getElementById('modal-subtitle').innerText = contextProduct.subtitle;
+            document.getElementById('modal-price-tag').innerText = `RM ${contextProduct.price.toFixed(2)}`;
+            
+            // Adjust form visible items dynamically for tailored menus
+            if(itemKey === 'croffle') {
+                document.getElementById('sauce-modifier-box').classList.remove('hidden');
+            } else {
+                document.getElementById('sauce-modifier-box').classList.remove('hidden');
+            }
+
+            document.getElementById('custom-modal').classList.remove('hidden');
+        }
+
+        function closeModality() {
+            document.getElementById('custom-modal').classList.add('hidden');
+            currentActiveKey = null;
+        }
+
+        // Processing raw basket push configurations
+        function addDirectToBasket(title, price, modificationsString) {
+            basketItems.push({
+                id: Date.now(),
+                title: title,
+                price: price,
+                details: modificationsString
+            });
+            renderBasketElements();
+        }
+
+        // Submitting data configurations safely from structural prompt choices
+        function commitItemToBasket() {
+            const contextProduct = MENU_DATA[currentActiveKey];
+            
+            // Extract selected radio elements
+            const selectedSauce = document.querySelector('input[name="sauce-choice"]:checked')?.value || "No Sauce";
+            
+            // Extract multiple checkboxes inputs array safely
+            let selectedCrunchList = [];
+            document.querySelectorAll('#crunch-modifier-box input[type="checkbox"]:checked').forEach(cb => {
+                selectedCrunchList.push(cb.value);
+            });
+            
+            let finalDetailsText = selectedSauce;
+            if(selectedCrunchList.length > 0) {
+                finalDetailsText += ` + [${selectedCrunchList.join(', ')}]`;
+            }
+
+            addDirectToBasket(contextProduct.title, contextProduct.price, finalDetailsText);
+            closeModality();
+        }
+
+        // Removing designated basket items
+        function removeBasketItem(uniqueId) {
+            basketItems = basketItems.filter(item => item.id !== uniqueId);
+            renderBasketElements();
+        }
+
+        function clearBasket() {
+            basketItems = [];
+            renderBasketElements();
+        }
+
+        // Recalculating visual totals inside right hand panel interface container
+        function renderBasketElements() {
+            const container = document.getElementById('basket-container');
+            
+            if(basketItems.length === 0) {
+                container.innerHTML = `
+                    <div id="empty-state" class="h-full flex flex-col items-center justify-center text-center text-gray-400 space-y-3">
+                        <span class="text-5xl">🍨</span>
+                        <p class="text-sm font-medium">Your tray is currently empty.<br>Tap any menu item to start.</p>
+                    </div>
+                `;
+                document.getElementById('subtotal-display').innerText = "RM 0.00";
+                document.getElementById('tax-display').innerText = "RM 0.00";
+                document.getElementById('total-display').innerText = "RM 0.00";
+                return;
+            }
+
+            // Render dynamic table objects sequentially
+            let outputHtml = '<div class="space-y-3">';
+            let subtotal = 0;
+
+            basketItems.forEach(item => {
+                subtotal += item.price;
+                outputHtml += `
+                    <div class="bg-gray-50 border border-gray-100 rounded-xl p-3 flex justify-between items-start space-x-2">
+                        <div class="flex-1 min-w-0">
+                            <h4 class="text-xs font-bold text-gray-900 truncate">${item.title}</h4>
+                            <p class="text-[10px] text-donnaBlue font-medium mt-0.5 truncate">${item.details}</p>
+                            <span class="text-xs font-bold text-gray-900 block mt-2">RM ${item.price.toFixed(2)}</span>
+                        </div>
+                        <button onclick="removeBasketItem(${item.id})" class="text-gray-300 hover:text-red-500 p-1 transition text-sm">
+                            <i class="bi bi-trash3"></i>
+                        </button>
+                    </div>
+                `;
+            });
+            outputHtml += '</div>';
+            container.innerHTML = outputHtml;
+
+            // Mathematical calculation logic for financial summaries
+            const serviceTax = subtotal * 0.06;
+            const finalTotal = subtotal + serviceTax;
+
+            document.getElementById('subtotal-display').innerText = `RM ${subtotal.toFixed(2)}`;
+            document.getElementById('tax-display').innerText = `RM ${serviceTax.toFixed(2)}`;
+            document.getElementById('total-display').innerText = `RM ${finalTotal.toFixed(2)}`;
+        }
+
+        // Triggering mock point-of-sale workflow alert message
+        function triggerCheckoutPayment() {
+            if(basketItems.length === 0) {
+                alert("Please select at least 1 delicious Donna treat to initiate hardware checkout options.");
+                return;
+            }
+            alert("Kiosk processing step initialized:\nConnecting with countertop credit terminal / DuitNow QR generator...");
+            clearBasket();
+        }
+    </script>
+</body>
+</html>
