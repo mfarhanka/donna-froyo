@@ -47,7 +47,7 @@
         }
     </style>
 </head>
-<body class="bg-donnaCream h-screen w-screen overflow-hidden font-sans flex flex-col">
+<body class="bg-donnaCream min-h-screen w-full overflow-x-hidden font-sans flex flex-col lg:h-screen lg:overflow-hidden">
 
     <!-- Top Banner: Language & Kiosk Mode Info -->
     <header class="bg-white border-b border-gray-200 px-6 py-3 flex justify-between items-center shrink-0">
@@ -66,17 +66,17 @@
     </header>
 
     <!-- Main Workspace Split Interface -->
-    <main class="flex-1 flex overflow-hidden w-full">
+    <main class="flex-1 flex flex-col overflow-y-auto w-full lg:flex-row lg:overflow-hidden">
         
         <!-- LEFT PANEL: Interactive 4-Item Menu Matrix -->
-        <section class="flex-1 p-8 overflow-y-auto h-full space-y-6">
+        <section class="flex-1 p-4 sm:p-6 lg:p-8 overflow-visible h-auto space-y-6 lg:overflow-y-auto lg:h-full">
             <div class="mb-2">
                 <h1 class="font-display text-2xl font-bold text-gray-900">Tap an item to customize your order</h1>
                 <p class="text-gray-500 text-sm">Freshly prepared, aesthetic local frozen yogurt treats.</p>
             </div>
 
             <!-- The Grid Matrix of 4 Dedicated Menu Items -->
-            <div class="grid grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                 
                 <!-- Category 1: Yogurt Ice Cream with Topping -->
                 <button onclick="openModality('yogurt')" class="bg-white border-2 border-transparent hover:border-donnaTeal active:scale-[0.98] rounded-3xl p-5 shadow-sm hover:shadow-md transition text-left flex flex-col justify-between min-h-[20rem] group relative overflow-hidden">
@@ -152,7 +152,7 @@
         </section>
 
         <!-- RIGHT PANEL: Kiosk Checkout Basket Side Bar -->
-        <section class="w-96 bg-white border-l border-gray-200 h-full flex flex-col justify-between shadow-lg shrink-0">
+        <section class="w-full bg-white border-t border-gray-200 flex flex-col justify-between shadow-lg shrink-0 lg:w-96 lg:border-t-0 lg:border-l lg:h-full">
             <!-- Basket Header -->
             <div class="p-6 border-b border-gray-100 flex justify-between items-center">
                 <div class="flex items-center space-x-2">
