@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donna Froyo | Premium Frozen Yogurt & Croffles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        donnaTeal: '#00A896',
+                        donnaBlue: '#028090',
+                        donnaLightBlue: '#E0F2F1',
+                        donnaCream: '#FDFBF7',
+                        donnaPistachio: '#8A9A5B'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        display: ['Fredoka', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .hero-bg {
+            background: linear-gradient(135deg, #E0F2F1 0%, #FDFBF7 100%);
+        }
+    </style>
+</head>
+<body class="bg-donnaCream text-gray-800 font-sans">
+
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-2">
+                <span class="font-display text-2xl font-bold text-donnaTeal tracking-wide">DONNA<span class="text-donnaPistachio">.</span></span>
+            </a>
+
+            <nav class="hidden md:flex space-x-8 font-medium">
+                <a href="#about" class="text-gray-600 hover:text-donnaTeal transition">About Us</a>
+                <a href="#menu" class="text-gray-600 hover:text-donnaTeal transition">Menu</a>
+                <a href="#locations" class="text-gray-600 hover:text-donnaTeal transition">Locations</a>
+                <a href="https://www.instagram.com/donna.froyo_/" target="_blank" class="text-gray-600 hover:text-donnaTeal transition">Instagram</a>
+            </nav>
+
+            <div class="hidden md:flex">
+                <a href="#menu" class="bg-donnaTeal hover:bg-donnaBlue text-white font-semibold px-6 py-2.5 rounded-full shadow-md transition transform hover:-translate-y-0.5">
+                    Order Now
+                </a>
+            </div>
+
+            <button id="menu-btn" class="md:hidden text-gray-600 focus:outline-none text-2xl">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-3">
+            <a href="#about" class="block font-medium text-gray-600 hover:text-donnaTeal">About Us</a>
+            <a href="#menu" class="block font-medium text-gray-600 hover:text-donnaTeal">Menu</a>
+            <a href="#locations" class="block font-medium text-gray-600 hover:text-donnaTeal">Locations</a>
+            <a href="https://www.instagram.com/donna.froyo_/" target="_blank" class="block font-medium text-gray-600 hover:text-donnaTeal">Instagram</a>
+            <a href="#menu" class="block text-center bg-donnaTeal text-white font-semibold py-2 rounded-full">Order Now</a>
+        </div>
+    </header>
+
+    <section class="hero-bg min-h-[calc(100vh-5rem)] flex items-center relative overflow-hidden py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center relative z-10">
+            
+            <div class="space-y-6 text-center md:text-left">
+                <span class="inline-block bg-donnaLightBlue text-donnaBlue font-semibold text-sm px-4 py-1.5 rounded-full uppercase tracking-wider">
+                    ✨ Aesthetic & Premium Froyo
+                </span>
+                <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                    Less Sour, <span class="text-donnaTeal">More Creamy</span> & Perfectly Balanced.
+                </h1>
+                <p class="text-lg text-gray-600 max-w-lg mx-auto md:mx-0">
+                    Indulge in Kedah's favorite aesthetic frozen yogurt. Crafted to be lighter, smoother, and flawlessly paired with our signature premium Pistachio sauce and fresh crispy croffles.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                    <a href="#menu" class="bg-donnaTeal hover:bg-donnaBlue text-white font-semibold text-lg px-8 py-3.5 rounded-full shadow-lg transition text-center">
+                        Explore Our Menu
+                    </a>
+                    <a href="https://www.instagram.com/donna.froyo_/" target="_blank" class="border-2 border-gray-300 hover:border-donnaTeal text-gray-700 hover:text-donnaTeal font-semibold text-lg px-8 py-3.5 rounded-full transition text-center flex items-center justify-center gap-2">
+                        <i class="bi bi-instagram"></i> Follow Updates
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex justify-center relative">
+                <div class="absolute -inset-4 bg-donnaLightBlue rounded-full blur-2xl opacity-70 animate-pulse"></div>
+                <div class="relative w-full max-w-sm aspect-[4/5] bg-gradient-to-tr from-donnaTeal to-donnaLightBlue rounded-3xl shadow-2xl p-6 flex flex-col justify-between text-white overflow-hidden group">
+                    <div class="absolute inset-0 bg-black/10 mix-blend-overlay"></div>
+                    <div class="flex justify-between items-center relative z-10">
+                        <span class="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold">🍦 Most Ordered</span>
+                        <i class="bi bi-heart-fill text-xl text-red-400"></i>
+                    </div>
+                    <div class="my-auto space-y-4 text-center relative z-10">
+                        <div class="w-24 h-24 bg-white/90 rounded-full mx-auto flex items-center justify-center shadow-lg transform group-hover:scale-110 transition duration-300">
+                            <span class="text-4xl">🍨</span>
+                        </div>
+                        <p class="font-display text-2xl font-bold">Donna Signature Tub</p>
+                        <p class="text-sm opacity-90">Layered with authentic Pistachio Sauce & fresh crunchy almonds.</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md p-3 rounded-xl text-center text-xs font-medium relative z-10">
+                        Top Choice in Jitra & Alor Setar
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-gray-900">Why Everyone Loves Donna</h2>
+                <div class="w-16 h-1 bg-donnaTeal mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="p-8 rounded-2xl bg-donnaCream hover:shadow-xl transition duration-300 border border-gray-100">
+                    <div class="w-14 h-14 bg-donnaLightBlue text-donnaTeal text-2xl rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="bi bi-stars"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-3">Perfect Balance</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Unlike traditional yogurt that can be unpleasantly sour, our secret formula is light, velvety smooth, and mildly sweet. 
+                    </p>
+                </div>
+                <div class="p-8 rounded-2xl bg-donnaCream hover:shadow-xl transition duration-300 border border-gray-100">
+                    <div class="w-14 h-14 bg-emerald-100 text-donnaPistachio text-2xl rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="bi bi-droplet-fill"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-3">Premium Pistachio Sauce</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Our crown jewel topping. A rich, intensely nutty, and authentic liquid gold drizzle that elevates every single bite.
+                    </p>
+                </div>
+                <div class="p-8 rounded-2xl bg-donnaCream hover:shadow-xl transition duration-300 border border-gray-100">
+                    <div class="w-14 h-14 bg-amber-100 text-amber-600 text-2xl rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="bi bi-camera"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-3">Aesthetic Vibes</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Beautifully curated spaces matching our vibrant teal look. Perfectly suited for family outings and Instagram OOTD setups.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="py-20 bg-donnaCream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-gray-900">Indulge in Our Menu</h2>
+                    <p class="text-gray-600 mt-2">Premium desserts made fresh daily at affordable prices.</p>
+                </div>
+                <div class="mt-4 md:mt-0 flex gap-3">
+                    <span class="text-sm font-medium text-gray-500 self-center hidden sm:inline">Order via delivery:</span>
+                    <a href="https://www.foodpanda.my/" target="_blank" class="bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-full text-xs font-semibold flex items-center gap-1.5 transition">
+                        <i class="bi bi-bicycle"></i> Foodpanda
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-gray-100 flex flex-col justify-between">
+                    <div class="p-6 bg-gradient-to-b from-donnaLightBlue/40 to-white text-center">
+                        <span class="text-5xl">🍦</span>
+                        <h3 class="font-display text-lg font-bold text-gray-900 mt-4">Froyo Medium with Toppings</h3>
+                        <p class="text-xs text-gray-500 mt-1">Choose your favorite crunch and sauce layer.</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 border-t border-gray-100 flex items-center justify-between">
+                        <span class="font-bold text-donnaTeal text-base">from RM 14.48</span>
+                        <span class="text-xs text-gray-400 bg-white px-2 py-1 rounded border">Best Seller</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-gray-100 flex flex-col justify-between">
+                    <div class="p-6 bg-gradient-to-b from-amber-50 to-white text-center">
+                        <span class="text-5xl">🧇</span>
+                        <h3 class="font-display text-lg font-bold text-gray-900 mt-4">Croffle with Toppings</h3>
+                        <p class="text-xs text-gray-500 mt-1">Crispy, buttery croissant waffle served warm.</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 border-t border-gray-100 flex items-center justify-between">
+                        <span class="font-bold text-donnaTeal text-base">from RM 12.40</span>
+                        <span class="text-xs text-gray-400 bg-white px-2 py-1 rounded border">Fresh Baked</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-gray-100 flex flex-col justify-between">
+                    <div class="p-6 bg-gradient-to-b from-donnaLightBlue/40 to-white text-center">
+                        <span class="text-5xl">✨</span>
+                        <h3 class="font-display text-lg font-bold text-gray-900 mt-4">The Perfect Combo</h3>
+                        <p class="text-xs text-gray-500 mt-1">Why choose? Get both personal Froyo & crispy Croffle.</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 border-t border-gray-100 flex items-center justify-between">
+                        <span class="font-bold text-donnaTeal text-base">from RM 26.00</span>
+                        <span class="text-xs text-white bg-donnaTeal px-2 py-1 rounded">Popular</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-gray-100 flex flex-col justify-between">
+                    <div class="p-6 bg-gradient-to-b from-emerald-50 to-white text-center">
+                        <span class="text-5xl">🫙</span>
+                        <h3 class="font-display text-lg font-bold text-gray-900 mt-4">Donna Pistachio Sauce</h3>
+                        <p class="text-xs text-gray-500 mt-1">Take home our signature premium sauce bottle.</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 border-t border-gray-100 flex items-center justify-between">
+                        <span class="font-bold text-donnaTeal text-base">RM 36.40</span>
+                        <span class="text-xs text-gray-400 bg-white px-2 py-1 rounded border">Signature</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-gradient-to-r from-donnaBlue to-donnaTeal rounded-3xl p-8 md:p-12 text-white flex flex-col md:flex-row justify-between items-center gap-6 shadow-lg">
+                <div class="space-y-2 text-center md:text-left">
+                    <span class="bg-white/20 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Gathering Packs</span>
+                    <h3 class="font-display text-2xl md:text-3xl font-bold">Donna Froyo Joy Family Packs</h3>
+                    <p class="text-white/80 max-w-xl text-sm md:text-base">Planning a family party or treat session? Secure our sharing packs complete with isolated cooler bags to safeguard your yogurt textures.</p>
+                </div>
+                <a href="https://www.foodpanda.my/" target="_blank" class="bg-white text-donnaBlue hover:bg-donnaLightBlue font-bold px-6 py-3 rounded-full shadow-md whitespace-nowrap transition">
+                    Browse Packs (From RM30)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="locations" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-gray-900">Visit Our Outlets</h2>
+                <p class="text-gray-600 mt-2">Come say hi and experience our calm and aesthetic physical layouts.</p>
+                <div class="w-16 h-1 bg-donnaTeal mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="p-6 rounded-2xl bg-donnaCream border border-gray-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="font-display text-xl font-bold text-gray-900">Donna Jitra (HQ)</h3>
+                            <span class="bg-emerald-100 text-emerald-800 text-xs px-2.5 py-1 rounded-full font-semibold">Open</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                            Natuwrel Donna, No 45, Kolej Heights Commercial Square,<br>06000 Jitra, Kubang Pasu, Kedah, Malaysia.
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-gray-500 pt-4 border-t border-gray-200/60">
+                        <i class="bi bi-clock"></i> <span>11:30 AM - 10:00 PM Daily</span>
+                    </div>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-donnaCream border border-gray-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="font-display text-xl font-bold text-gray-900">Donna Alor Setar</h3>
+                            <span class="bg-emerald-100 text-emerald-800 text-xs px-2.5 py-1 rounded-full font-semibold">Open</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                            Alor Setar Branch Outlets,<br>Alor Setar, Kedah, Malaysia.
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-gray-500 pt-4 border-t border-gray-200/60">
+                        <i class="bi bi-clock"></i> <span>11:30 AM - 10:00 PM Daily</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-950 text-gray-400 py-12 border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8 mb-8">
+            <div class="space-y-4">
+                <span class="font-display text-2xl font-bold text-white tracking-wide">DONNA<span class="text-donnaTeal">.</span></span>
+                <p class="text-xs max-w-sm">
+                    Kedah's premier home-grown frozen yogurt shop specializing in smooth premium froyo tubs, artisanal croffles, and genuine pistachio sauces.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+                    <li><a href="#menu" class="hover:text-white transition">Menu Choices</a></li>
+                    <li><a href="#locations" class="hover:text-white transition">Outlets</a></li>
+                    <li><a href="https://www.instagram.com/donna.froyo_/" target="_blank" class="hover:text-white transition">Instagram Community</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Connect With Us</h4>
+                <div class="flex space-x-4 mb-4 text-xl">
+                    <a href="https://www.instagram.com/donna.froyo_/" target="_blank" class="hover:text-white transition"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="hover:text-white transition"><i class="bi bi-tiktok"></i></a>
+                    <a href="#" class="hover:text-white transition"><i class="bi bi-facebook"></i></a>
+                </div>
+                <p class="text-xs">Tag <span class="text-donnaTeal">@donna.froyo_</span> to get featured on our feed!</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-gray-900 text-center text-xs text-gray-600 flex flex-col sm:flex-row justify-between gap-4">
+            <p>&copy; 2026 Donna Froyo. All rights reserved.</p>
+            <p>Proudly Serving Kedah, Malaysia 🇲🇾</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = menuBtn.querySelector('i');
+            if(mobileMenu.classList.contains('hidden')) {
+                icon.className = 'bi bi-list';
+            } else {
+                icon.className = 'bi bi-x-lg';
+            }
+        });
+
+        // Close menu upon item selection
+        const navLinks = mobileMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuBtn.querySelector('i').className = 'bi bi-list';
+            });
+        });
+    </script>
+</body>
+</html>
