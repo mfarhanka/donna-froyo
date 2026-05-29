@@ -73,6 +73,23 @@
         </div>
     </header>
 
+    <div id="welcome-modal" class="fixed inset-0 z-[60] flex items-center justify-center bg-gray-950/70 px-4 py-6 backdrop-blur-sm">
+        <div class="relative w-full max-w-md overflow-hidden rounded-3xl bg-white shadow-2xl">
+            <button id="welcome-close" type="button" class="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-md transition hover:bg-white" aria-label="Close welcome message">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            <img src="assets/images/welcome-eid-al-adha.png" alt="Donna Froyo Eid al-Adha welcome message" class="w-full h-auto object-cover">
+            <div class="space-y-3 px-6 py-5 text-center">
+                <p class="text-sm font-semibold uppercase tracking-[0.3em] text-donnaBlue">Welcome Message</p>
+                <h2 class="font-display text-3xl font-bold text-gray-900">Salam Aidiladha from Donna Froyo</h2>
+                <p class="text-sm leading-relaxed text-gray-600">Wishing you a peaceful celebration and sweet moments with the people closest to you.</p>
+                <button id="welcome-cta" type="button" class="inline-flex items-center justify-center rounded-full bg-donnaTeal px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-donnaBlue">
+                    Enter Website
+                </button>
+            </div>
+        </div>
+    </div>
+
     <section class="hero-bg min-h-[calc(100vh-5rem)] flex items-center relative overflow-hidden py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center relative z-10">
             
@@ -317,6 +334,16 @@
     <script>
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        const welcomeModal = document.getElementById('welcome-modal');
+        const welcomeClose = document.getElementById('welcome-close');
+        const welcomeCta = document.getElementById('welcome-cta');
+
+        const closeWelcomeModal = () => {
+            welcomeModal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        };
+
+        document.body.classList.add('overflow-hidden');
 
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
@@ -335,6 +362,21 @@
                 mobileMenu.classList.add('hidden');
                 menuBtn.querySelector('i').className = 'bi bi-list';
             });
+        });
+
+        welcomeClose.addEventListener('click', closeWelcomeModal);
+        welcomeCta.addEventListener('click', closeWelcomeModal);
+
+        welcomeModal.addEventListener('click', (event) => {
+            if (event.target === welcomeModal) {
+                closeWelcomeModal();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && !welcomeModal.classList.contains('hidden')) {
+                closeWelcomeModal();
+            }
         });
     </script>
 </body>
